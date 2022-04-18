@@ -1,0 +1,5 @@
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+
+    <!--API endpoint-->
+    <string name="nimble_endpoint">https://nimble-survey-web-staging.herokuapp.com/</string>
+</resources>
