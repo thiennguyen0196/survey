@@ -85,6 +85,10 @@ kapt {
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
+    // Internal modules
+    implementation(project(":data"))
+    implementation(project(":domain"))
+
     // Kotlin
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.6.10")
 

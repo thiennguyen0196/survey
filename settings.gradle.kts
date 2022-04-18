@@ -1,2 +1,2 @@
 rootProject.name = "survey"
-include(":app")
+include(":app", ":data", ":domain")
