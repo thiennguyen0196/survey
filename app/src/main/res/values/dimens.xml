@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="corner_12">12dp</dimen>
+
+    <dimen name="text_size_16">16sp</dimen>
+
+    <dimen name="space_12">12dp</dimen>
+    <dimen name="space_16">16dp</dimen>
+    <dimen name="space_20">20dp</dimen>
+    <dimen name="space_24">24dp</dimen>
+    <dimen name="space_108">108dp</dimen>
+
+    <dimen name="height_56">56dp</dimen>
+</resources>
