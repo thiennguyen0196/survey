@@ -9,6 +9,9 @@ open class BaseViewModel : ViewModel() {
 
     private var compositeDisposable: CompositeDisposable? = null
 
+    val onLoadingChange = MutableLiveData<Boolean>()
+    val onErrorChange = MutableLiveData<Throwable>()
+
     fun addDisposable(disposable: Disposable) {
         if (compositeDisposable == null || compositeDisposable?.isDisposed == true) {
             compositeDisposable = CompositeDisposable()

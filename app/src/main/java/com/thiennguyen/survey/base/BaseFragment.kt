@@ -4,19 +4,34 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
+import com.google.android.material.snackbar.Snackbar
+import com.thiennguyen.survey.R
 import dagger.hilt.android.AndroidEntryPoint
 
-abstract class BaseFragment<VM : BaseViewModel, VB: ViewBinding> : Fragment() {
+abstract class BaseFragment<VM : BaseViewModel, VB : ViewBinding> : Fragment(), OnLoadingSupporting {
 
-    lateinit var binding: ViewBinding
+    lateinit var binding: VB
+
     abstract val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> VB
 
     abstract val viewModel: VM
 
     open fun setupUI() = Unit
-    open fun setupViewModel() = Unit
+
+    open fun setupViewModel() {
+        viewModel.onLoadingChange.observe(viewLifecycleOwner) {
+            when (it) {
+                true -> showLoading()
+                false -> hideLoading()
+            }
+        }
+        viewModel.onErrorChange.observe(viewLifecycleOwner) {
+            showSnackErrorMessage(R.string.message_error)
+        }
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = bindingInflater.invoke(inflater, container, false)
@@ -28,5 +43,9 @@ abstract class BaseFragment<VM : BaseViewModel, VB: ViewBinding> : Fragment() {
 
         setupUI()
         setupViewModel()
+    }
+
+    protected fun showSnackErrorMessage(@StringRes message: Int) {
+        Snackbar.make(binding.root, message, Snackbar.LENGTH_SHORT).show()
     }
 }

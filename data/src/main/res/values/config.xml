@@ -1,4 +1,5 @@
-<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
 
     <!--API endpoint-->
     <string name="nimble_endpoint">https://survey-api.nimblehq.co/api/v1/</string>

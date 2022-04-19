@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -47,7 +48,7 @@
                 android:layout_marginEnd="@dimen/space_24"
                 android:layout_marginBottom="@dimen/space_20"
                 android:background="@drawable/bg_text_field"
-                android:hint="@string/email_hint"
+                android:hint="@string/hint_email"
                 android:inputType="textEmailAddress"
                 android:lines="1"
                 android:paddingStart="@dimen/space_12"
@@ -68,7 +69,7 @@
                 android:layout_marginStart="@dimen/space_24"
                 android:layout_marginEnd="@dimen/space_24"
                 android:background="@drawable/bg_text_field"
-                android:hint="@string/password_hint"
+                android:hint="@string/hint_password"
                 android:inputType="textPassword"
                 android:lines="1"
                 android:paddingStart="@dimen/space_12"
@@ -94,7 +95,7 @@
                 android:paddingTop="@dimen/space_16"
                 android:paddingEnd="@dimen/space_12"
                 android:paddingBottom="@dimen/space_16"
-                android:text="@string/login_title"
+                android:text="@string/title_login"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
                 android:textColorHint="@color/white_20"
@@ -105,6 +106,21 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/etPassword" />
+
+            <ProgressBar
+                android:id="@+id/pbLoading"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/space_20"
+                android:layout_marginEnd="@dimen/space_56"
+                android:layout_marginBottom="@dimen/space_16"
+                android:indeterminateTint="@color/black"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/btnLogin"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="@id/btnLogin"
+                app:layout_constraintTop_toTopOf="@id/btnLogin"
+                tools:visibility="visible" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
