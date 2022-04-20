@@ -1,3 +1,6 @@
+import java.util.Properties
+import java.io.FileInputStream
+
 plugins {
     id ("com.android.library")
     id("kotlin-android")
@@ -5,12 +8,18 @@ plugins {
     id("kotlin-parcelize")
 }
 
+val apikeyPropertiesFile = rootProject.file("apikeys.properties")
+val apikeyProperties = Properties()
+apikeyProperties.load(FileInputStream(apikeyPropertiesFile))
+
 android {
     compileSdk = Configuration.compileSdk
 
     defaultConfig {
         minSdk = Configuration.minSdk
         targetSdk = Configuration.targetSdk
+        buildConfigField("String", "CLIENT_ID", apikeyProperties["clientId"] as String)
+        buildConfigField("String", "CLIENT_SECRET", apikeyProperties["clientSecret"] as String)
     }
 
     sourceSets["test"].resources {
