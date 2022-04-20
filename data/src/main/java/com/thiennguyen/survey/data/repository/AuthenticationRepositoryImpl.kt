@@ -8,6 +8,7 @@ import com.thiennguyen.survey.data.request.RefreshTokenRequest
 import com.thiennguyen.survey.data.service.SurveyService
 import com.thiennguyen.survey.domain.repository.AuthenticationRepository
 import io.reactivex.rxjava3.core.Completable
+import io.reactivex.rxjava3.core.Observable
 import javax.inject.Inject
 
 class AuthenticationRepositoryImpl @Inject constructor(
@@ -58,5 +59,11 @@ class AuthenticationRepositoryImpl @Inject constructor(
                 )
             }
             .ignoreElements()
+    }
+
+    override fun isLoggedIn(): Observable<Boolean> {
+        return Observable.defer {
+            Observable.just(preferenceManager.getIsLoggedIn())
+        }
     }
 }
