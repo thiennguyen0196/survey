@@ -9,10 +9,10 @@ data class LoginAttributesResponse(
     val accessToken: String? = null,
 
     @SerializedName("created_at")
-    val createdAt: Int? = null,
+    val createdAt: Long? = null,
 
     @SerializedName("expires_in")
-    val expiresIn: Int? = null,
+    val expiresIn: Long? = null,
 
     @SerializedName("refresh_token")
     val refreshToken: String? = null,

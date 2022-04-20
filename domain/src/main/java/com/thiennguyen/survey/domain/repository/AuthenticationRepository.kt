@@ -5,4 +5,6 @@ import io.reactivex.rxjava3.core.Completable
 interface AuthenticationRepository {
 
     fun submitLogin(email: String, password: String): Completable
+
+    fun refreshToken(refreshToken: String): Completable
 }

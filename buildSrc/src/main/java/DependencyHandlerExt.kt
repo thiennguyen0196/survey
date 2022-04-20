@@ -61,10 +61,6 @@ fun DependencyHandler.addReactiveX(configurationName: String = "implementation")
     add(configurationName, ReactiveX.rx_kotlin_3)
 }
 
-fun DependencyHandler.addGson(configurationName: String = "implementation") {
-    add(configurationName, Gson.gson)
-}
-
 fun DependencyHandler.addOkHttp(configurationName: String = "implementation") {
     add(configurationName, OkHttp.okhttp)
     add(configurationName, OkHttp.logging_interceptor)
