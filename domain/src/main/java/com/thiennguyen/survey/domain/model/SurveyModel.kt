@@ -11,5 +11,5 @@ data class SurveyModel(
 
     val attributes: SurveyAttributesModel? = null,
 
-    val relationships: SurveyRelationshipsModel? = null
+    val relationships: SurveyRelationshipModel? = null
 ) : Parcelable
