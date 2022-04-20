@@ -2,9 +2,15 @@
 
     <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
+
     <string name="title_login">Log in</string>
+    <string name="title_detail">Detail</string>
+
+    <string name="text_today">Today</string>
 
     <string name="message_email_invalid">Email is empty or wrong format.</string>
     <string name="message_password_invalid">Password is empty.</string>
     <string name="message_error">Something went wrong. Please try again</string>
+
+    <string name="btn_survey">Start survey</string>
 </resources>

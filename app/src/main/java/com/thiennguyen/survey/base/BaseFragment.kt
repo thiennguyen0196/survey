@@ -6,10 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.viewbinding.ViewBinding
 import com.google.android.material.snackbar.Snackbar
 import com.thiennguyen.survey.R
-import dagger.hilt.android.AndroidEntryPoint
 
 abstract class BaseFragment<VM : BaseViewModel, VB : ViewBinding> : Fragment(), OnLoadingSupporting {
 
@@ -18,6 +19,17 @@ abstract class BaseFragment<VM : BaseViewModel, VB : ViewBinding> : Fragment(), 
     abstract val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> VB
 
     abstract val viewModel: VM
+
+    protected val navController: NavController?
+        get() {
+            return activity?.let {
+                try {
+                    Navigation.findNavController(it, R.id.nav_host_fragment)
+                } catch (e: IllegalStateException) {
+                    null
+                }
+            }
+        }
 
     open fun setupUI() = Unit
 

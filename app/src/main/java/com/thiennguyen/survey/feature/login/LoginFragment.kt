@@ -3,9 +3,7 @@ package com.thiennguyen.survey.feature.login
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.StringRes
 import androidx.fragment.app.viewModels
-import com.google.android.material.snackbar.Snackbar
 import com.thiennguyen.survey.R
 import com.thiennguyen.survey.base.BaseFragment
 import com.thiennguyen.survey.databinding.FragmentLoginBinding
@@ -42,7 +40,7 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>() {
                     showSnackErrorMessage(R.string.message_password_invalid)
                 }
                 is LoginViewModel.LoginState.Success -> {
-
+                    navController?.navigate(LoginFragmentDirections.actionLoginFragmentToHomeFragment())
                 }
             }
         }
