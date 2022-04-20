@@ -3,7 +3,11 @@ package com.thiennguyen.survey.data.di
 import android.content.Context
 import com.thiennguyen.survey.data.BuildConfig
 import com.thiennguyen.survey.data.R
+import com.thiennguyen.survey.data.interceptor.AuthenticationInterceptor
+import com.thiennguyen.survey.data.local.PreferenceManager
 import com.thiennguyen.survey.data.service.SurveyService
+import com.thiennguyen.survey.domain.repository.AuthenticationRepository
+import dagger.Lazy
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -34,8 +38,24 @@ class ServiceModule {
 
     @Provides
     @Singleton
-    fun provideOkHttpClient(loggingInterceptor: HttpLoggingInterceptor): OkHttpClient {
+    fun provideAuthenticationInterceptor(
+        preferenceManager: PreferenceManager,
+        authenticationRepository: Lazy<AuthenticationRepository>
+    ): AuthenticationInterceptor {
+        return AuthenticationInterceptor(
+            authenticationRepository = authenticationRepository,
+            preferenceManager = preferenceManager
+        )
+    }
+
+    @Provides
+    @Singleton
+    fun provideOkHttpClient(
+        loggingInterceptor: HttpLoggingInterceptor,
+        authenticationInterceptor: AuthenticationInterceptor
+    ): OkHttpClient {
         return OkHttpClient().newBuilder()
+            .addInterceptor(authenticationInterceptor)
             .addInterceptor(loggingInterceptor)
             .connectTimeout(15, TimeUnit.SECONDS)
             .writeTimeout(15, TimeUnit.SECONDS)
