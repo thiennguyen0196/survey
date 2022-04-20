@@ -21,5 +21,7 @@ data class SurveyAttributesModel(
 
     val activeAt: String? = null,
 
-    val surveyType: String?
+    val inactiveAt: String? = null,
+
+    val surveyType: String? = null
 ) : Parcelable
