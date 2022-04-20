@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmerLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/space_20"
+        android:layout_marginTop="@dimen/space_64"
+        android:layout_marginEnd="@dimen/space_20"
+        android:layout_marginBottom="@dimen/space_64"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <View
+                android:id="@+id/viewShimmer1"
+                android:layout_width="@dimen/space_117"
+                android:layout_height="@dimen/space_20"
+                android:background="@drawable/bg_shimmer_view"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/viewShimmer2"
+                android:layout_width="@dimen/space_96"
+                android:layout_height="@dimen/space_20"
+                android:layout_marginTop="@dimen/space_12"
+                android:background="@drawable/bg_shimmer_view"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/viewShimmer1" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/space_36"
+                android:layout_height="@dimen/space_36"
+                android:background="@drawable/bg_shimmer_view_round"
+                app:layout_constraintBottom_toBottomOf="@id/viewShimmer2"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <View
+                android:id="@+id/viewShimmer3"
+                android:layout_width="@dimen/space_200"
+                android:layout_height="@dimen/space_20"
+                android:background="@drawable/bg_shimmer_view"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <View
+                android:id="@+id/viewShimmer4"
+                android:layout_width="@dimen/space_318"
+                android:layout_height="@dimen/space_20"
+                android:layout_marginBottom="@dimen/space_12"
+                android:background="@drawable/bg_shimmer_view"
+                app:layout_constraintBottom_toTopOf="@id/viewShimmer3"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <View
+                android:id="@+id/viewShimmer5"
+                android:layout_width="@dimen/space_117"
+                android:layout_height="@dimen/space_20"
+                android:layout_marginBottom="@dimen/space_20"
+                android:background="@drawable/bg_shimmer_view"
+                app:layout_constraintBottom_toTopOf="@id/viewShimmer4"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <View
+                android:id="@+id/viewShimmer6"
+                android:layout_width="@dimen/space_200"
+                android:layout_height="@dimen/space_20"
+                android:layout_marginBottom="@dimen/space_12"
+                android:background="@drawable/bg_shimmer_view"
+                app:layout_constraintBottom_toTopOf="@id/viewShimmer5"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <View
+                android:id="@+id/viewShimmer7"
+                android:layout_width="@dimen/space_36"
+                android:layout_height="@dimen/space_20"
+                android:layout_marginBottom="@dimen/space_20"
+                android:background="@drawable/bg_shimmer_view"
+                app:layout_constraintBottom_toTopOf="@id/viewShimmer6"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/space_8"
+        android:layout_marginStart="@dimen/space_20"
+        android:layout_marginEnd="@dimen/space_20"
+        android:layout_marginBottom="@dimen/space_253"
+        android:backgroundTint="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:tabBackground="@drawable/bg_indicator_unselected"
+        app:tabGravity="center"
+        app:tabIndicator="@drawable/bg_indicator_selected"
+        app:tabIndicatorColor="@color/white"
+        app:tabIndicatorHeight="@dimen/space_8"
+        app:tabPaddingBottom="0dp"
+        app:tabPaddingEnd="@dimen/space_20"
+        app:tabPaddingStart="0dp"
+        app:tabPaddingTop="0dp" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivAvatar"
+        android:layout_width="@dimen/space_36"
+        android:layout_height="@dimen/space_36"
+        android:layout_marginEnd="@dimen/space_20"
+        app:layout_constraintBottom_toBottomOf="@id/tvToday"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:src="@mipmap/ic_launcher_round" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_20"
+        android:layout_marginTop="@dimen/space_64"
+        android:layout_marginEnd="@dimen/space_20"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_12"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/ivAvatar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Thursday, April 20" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvToday"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_20"
+        android:layout_marginTop="@dimen/space_4"
+        android:layout_marginEnd="@dimen/space_20"
+        android:text="@string/text_today"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_32"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/ivAvatar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDate" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnStartSurvey"
+        android:layout_width="@dimen/space_56"
+        android:layout_height="@dimen/space_56"
+        android:layout_marginEnd="@dimen/space_20"
+        android:layout_marginBottom="@dimen/space_56"
+        android:contentDescription="@string/btn_survey"
+        android:src="@drawable/ic_arrow_right_black"
+        app:backgroundTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:rippleColor="@color/white_20" />
+</androidx.constraintlayout.widget.ConstraintLayout>

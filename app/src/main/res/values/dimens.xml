@@ -4,12 +4,24 @@
 
     <dimen name="text_size_12">12sp</dimen>
     <dimen name="text_size_16">16sp</dimen>
+    <dimen name="text_size_20">32sp</dimen>
+    <dimen name="text_size_32">32sp</dimen>
+    <dimen name="text_size_48">48sp</dimen>
 
     <dimen name="space_4">4dp</dimen>
+    <dimen name="space_8">8dp</dimen>
     <dimen name="space_12">12dp</dimen>
     <dimen name="space_16">16dp</dimen>
     <dimen name="space_20">20dp</dimen>
     <dimen name="space_24">24dp</dimen>
+    <dimen name="space_36">36dp</dimen>
     <dimen name="space_56">56dp</dimen>
+    <dimen name="space_64">64dp</dimen>
+    <dimen name="space_96">96dp</dimen>
     <dimen name="space_108">108dp</dimen>
+    <dimen name="space_117">117dp</dimen>
+    <dimen name="space_128">128dp</dimen>
+    <dimen name="space_200">200dp</dimen>
+    <dimen name="space_253">253dp</dimen>
+    <dimen name="space_318">318dp</dimen>
 </resources>
