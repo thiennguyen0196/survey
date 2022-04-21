@@ -14,7 +14,7 @@ class PagerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         binding.tvDesc.text = model.attributes?.description
         Glide.with(itemView.context)
             .load("${model.attributes?.coverImageUrl}l")
-            .circleCrop()
+            .centerCrop()
             .into(binding.ivCover)
     }
 }

@@ -5,7 +5,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.viewpager2.widget.ViewPager2
+import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayoutMediator
+import com.thiennguyen.survey.R
 import com.thiennguyen.survey.base.BaseFragment
 import com.thiennguyen.survey.data.Constants
 import com.thiennguyen.survey.databinding.FragmentHomeBinding
@@ -71,6 +73,12 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
             } else {
                 pagerAdapter.addAll(it)
             }
+        }
+        viewModel.onUserProfileAvatarChange.observe(viewLifecycleOwner) {
+            Glide.with(requireContext())
+                .load(it)
+                .circleCrop()
+                .into(binding.ivAvatar);
         }
     }
 
