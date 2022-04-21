@@ -5,6 +5,7 @@ import com.thiennguyen.survey.data.Constants
 import com.thiennguyen.survey.domain.model.MetaModel
 import com.thiennguyen.survey.domain.model.SurveyModel
 import com.thiennguyen.survey.domain.usecase.GetSurveyListUseCase
+import com.thiennguyen.survey.domain.usecase.GetUserProfileUseCase
 import com.thiennguyen.survey.utils.RxUtils
 import com.thiennguyen.survey.utils.SingleLiveData
 import com.thiennguyen.survey.utils.add
@@ -14,7 +15,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val getSurveyListUseCase: GetSurveyListUseCase
+    private val getSurveyListUseCase: GetSurveyListUseCase,
+    private val getUserProfileUseCase: GetUserProfileUseCase
 ) : BaseViewModel() {
 
     data class LoadMoreDataSet(
@@ -26,9 +28,11 @@ class HomeViewModel @Inject constructor(
 
     var loadMoreDataSet = LoadMoreDataSet()
     val onSurveyListChange = SingleLiveData<List<SurveyModel>>()
+    val onUserProfileAvatarChange = SingleLiveData<String>()
 
     init {
         getSurveyList()
+        getUserProfile()
     }
 
     fun getSurveyList(isRefresh: Boolean = false) {
@@ -49,6 +53,16 @@ class HomeViewModel @Inject constructor(
                 Timber.i(it)
                 onErrorChange.postValue(it)
                 loadMoreDataSet.isLoading = false
+            }).add(this)
+    }
+
+    private fun getUserProfile() {
+        getUserProfileUseCase.getUserProfile()
+            .compose(RxUtils.applyObservableSchedulers())
+            .subscribe({
+                onUserProfileAvatarChange.postValue("${it.attributes?.avatarUrl.orEmpty()}l")
+            }, {
+                Timber.i(it)
             }).add(this)
     }
 

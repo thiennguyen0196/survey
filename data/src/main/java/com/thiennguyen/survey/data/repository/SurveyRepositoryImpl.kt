@@ -3,6 +3,7 @@ package com.thiennguyen.survey.data.repository
 import com.thiennguyen.survey.data.service.SurveyService
 import com.thiennguyen.survey.domain.model.MetaModel
 import com.thiennguyen.survey.domain.model.SurveyModel
+import com.thiennguyen.survey.domain.model.UserModel
 import com.thiennguyen.survey.domain.repository.SurveyRepository
 import io.reactivex.rxjava3.core.Observable
 import java.lang.NullPointerException
@@ -25,5 +26,11 @@ class SurveyRepositoryImpl @Inject constructor(
                     Pair(metaModel, surveyList)
                 }
             }
+    }
+
+    override fun getUserProfile(): Observable<UserModel> {
+        return surveyService.getUserProfile()
+            .map { it.data!! }
+            .map { it.mapToModel() }
     }
 }
