@@ -3,14 +3,19 @@
     <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
 
-    <string name="title_login">Log in</string>
     <string name="title_detail">Detail</string>
+    <string name="title_check_email">Check your email</string>
+    <string name="title_forgot_password">Enter your email to receive instructions for resetting your password.</string>
 
     <string name="text_today">Today</string>
 
     <string name="message_email_invalid">Email is empty or wrong format.</string>
     <string name="message_password_invalid">Password is empty.</string>
     <string name="message_error">Something went wrong. Please try again</string>
+    <string name="message_check_email">We’ve email you instructions to reset your password.</string>
 
     <string name="btn_survey">Start survey</string>
+    <string name="btn_login">Log in</string>
+    <string name="btn_reset">Reset</string>
+    <string name="btnForgotPassword">Forgot?</string>
 </resources>

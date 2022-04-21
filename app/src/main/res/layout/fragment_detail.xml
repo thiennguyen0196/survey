@@ -6,8 +6,8 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivBack"
-        android:layout_width="@dimen/space_36"
-        android:layout_height="@dimen/space_36"
+        android:layout_width="@dimen/space_30"
+        android:layout_height="@dimen/space_30"
         android:layout_marginStart="@dimen/space_16"
         android:layout_marginTop="@dimen/space_56"
         android:src="@drawable/ic_back_white"

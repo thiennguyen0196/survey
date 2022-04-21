@@ -26,6 +26,9 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>() {
                 password = binding.etPassword.text.toString()
             )
         }
+        binding.tvForgot.setOnClickListener {
+            navController?.navigate(LoginFragmentDirections.actionLoginFragmentToForgotFragment())
+        }
     }
 
     override fun setupViewModel() {
