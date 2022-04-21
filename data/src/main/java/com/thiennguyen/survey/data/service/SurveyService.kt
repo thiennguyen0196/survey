@@ -1,9 +1,9 @@
 package com.thiennguyen.survey.data.service
 
+import com.thiennguyen.survey.data.request.ResetPasswordRequest
 import com.thiennguyen.survey.data.request.LoginRequest
 import com.thiennguyen.survey.data.request.RefreshTokenRequest
 import com.thiennguyen.survey.data.response.*
-import com.thiennguyen.survey.domain.model.SurveyModel
 import io.reactivex.rxjava3.core.Observable
 import retrofit2.http.*
 
@@ -14,6 +14,9 @@ interface SurveyService {
 
     @POST("oauth/token")
     fun refreshToken(@Body refreshTokenRequest: RefreshTokenRequest): Observable<ObjectResponse<LoginResponse>>
+
+    @POST("passwords")
+    fun resetPassword(@Body resetPasswordRequest: ResetPasswordRequest): Observable<ObjectResponse<Unit>>
 
     @GET("surveys")
     fun getSurveyList(

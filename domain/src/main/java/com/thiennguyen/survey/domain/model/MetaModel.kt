@@ -5,6 +5,8 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class MetaModel(
+    val message: String? = null,
+
     val page: Int? = null,
 
     val pages: Int? = null,

@@ -4,6 +4,9 @@ import com.google.gson.annotations.SerializedName
 import com.thiennguyen.survey.domain.model.MetaModel
 
 class MetaResponse(
+    @SerializedName("message")
+    val message: String? = null,
+
     @SerializedName("page")
     val page: Int? = null,
 
@@ -18,6 +21,7 @@ class MetaResponse(
 ) {
     fun mapToModel(): MetaModel {
         return MetaModel(
+            message = this.message,
             page = this.page,
             pages = this.pages,
             pageSize = this.page,
