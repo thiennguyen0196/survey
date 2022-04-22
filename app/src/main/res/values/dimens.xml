@@ -23,8 +23,6 @@
     <dimen name="space_96">96dp</dimen>
     <dimen name="space_108">108dp</dimen>
     <dimen name="space_117">117dp</dimen>
-    <dimen name="space_128">128dp</dimen>
     <dimen name="space_200">200dp</dimen>
-    <dimen name="space_253">253dp</dimen>
     <dimen name="space_318">318dp</dimen>
 </resources>

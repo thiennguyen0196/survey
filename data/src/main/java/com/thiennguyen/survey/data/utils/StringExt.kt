@@ -1,6 +1,6 @@
 package com.thiennguyen.survey.data.utils
 
-import java.util.*
+import java.util.Date
 
 fun String?.isValidAccessToken(expiredIn: Long): Boolean {
     if (this.isNullOrEmpty()) return false

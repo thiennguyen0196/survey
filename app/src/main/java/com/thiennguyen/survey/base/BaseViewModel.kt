@@ -1,7 +1,7 @@
 package com.thiennguyen.survey.base
 
-import androidx.lifecycle.*
-import dagger.hilt.android.lifecycle.HiltViewModel
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.disposables.Disposable
 
