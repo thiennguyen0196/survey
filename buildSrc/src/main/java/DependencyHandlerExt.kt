@@ -72,6 +72,7 @@ fun DependencyHandler.addJunit(configurationName: String = "testImplementation")
 
 fun DependencyHandler.addMockito(configurationName: String = "testImplementation") {
     add(configurationName, Mockito.core)
+    add(configurationName, Mockito.inline)
     add(configurationName, Mockito.kotlin)
 }
 
