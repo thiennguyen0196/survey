@@ -1,4 +1,4 @@
-package com.thiennguyen.survey.data.repository.testutils
+package com.thiennguyen.survey.data.testutils
 
 import com.google.gson.Gson
 import java.nio.file.Paths

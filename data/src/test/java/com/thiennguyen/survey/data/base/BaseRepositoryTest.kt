@@ -1,8 +1,7 @@
-package com.thiennguyen.survey.data.repository.base
+package com.thiennguyen.survey.data.base
 
 import com.google.gson.Gson
-import com.thiennguyen.survey.data.repository.testutils.TestUtils
-import junit.framework.TestCase
+import com.thiennguyen.survey.data.testutils.TestUtils
 import okhttp3.OkHttpClient
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer

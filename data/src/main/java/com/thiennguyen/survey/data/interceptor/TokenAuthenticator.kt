@@ -35,7 +35,7 @@ class TokenAuthenticator(
                             repository.get().refreshToken(preferenceManager.getRefreshToken().orEmpty())
                                 .timeout(15, TimeUnit.SECONDS)
                                 .blockingSubscribe()
-                            appendToken(response, tokenType, preferenceManager.getAccessToken().orEmpty())
+                            return appendToken(response, tokenType, preferenceManager.getAccessToken().orEmpty())
                         } catch (e: Exception) {
                             Timber.i("Refreshing token failed, retry again >>> $e")
                         }
