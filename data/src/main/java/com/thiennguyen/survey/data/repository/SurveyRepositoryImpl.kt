@@ -30,7 +30,6 @@ class SurveyRepositoryImpl @Inject constructor(
 
     override fun getUserProfile(): Observable<UserModel> {
         return surveyService.getUserProfile()
-            .map { it.data!! }
-            .map { it.mapToModel() }
+            .map { it.data?.mapToModel()!! }
     }
 }

@@ -22,6 +22,7 @@ class AuthenticationRepositoryImplTest : BaseRepositoryTest() {
         private const val REFRESH_RESPONSE = "api-response/refresh_response.json"
         private const val DATA_NULL_RESPONSE = "api-response/data_null_response.json"
         private const val FORGOT_PASSWORD_RESPONSE = "api-response/forgot_password_response.json"
+        private const val META_NULL_RESPONSE = "api-response/meta_null_response.json"
     }
 
     private lateinit var repository: AuthenticationRepositoryImpl
@@ -154,6 +155,19 @@ class AuthenticationRepositoryImplTest : BaseRepositoryTest() {
         testObserver.assertComplete()
         testObserver.assertNoErrors()
         testObserver.assertValue { it.message == "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes." }
+    }
+
+    @Test
+    fun `When reset password success, but meta is null, then return empty meta model`() {
+        fakeResponseBodyFile(META_NULL_RESPONSE, HttpURLConnection.HTTP_OK)
+
+        val testObserver = TestObserver<MetaModel>()
+        repository.resetPassword("").subscribe(testObserver)
+
+        testObserver.awaitDone(10, TimeUnit.SECONDS)
+        testObserver.assertComplete()
+        testObserver.assertNoErrors()
+        testObserver.assertValue { it.message == null }
     }
 
     @Test

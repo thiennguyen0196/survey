@@ -78,6 +78,6 @@ class AuthenticationRepositoryImpl @Inject constructor(
                 clientSecret = BuildConfig.CLIENT_SECRET
             )
         )
-            .map { it.meta?.mapToModel()!! }
+            .map { it.meta?.mapToModel() ?: MetaModel() }
     }
 }
