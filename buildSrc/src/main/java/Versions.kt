@@ -59,12 +59,6 @@ object OkHttp {
     const val logging_interceptor = "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
 }
 
-object Gson {
-    private const val gsonVersion = "2.9.0"
-
-    const val gson = "com.google.code.gson:gson:$gsonVersion"
-}
-
 object Hilt {
     const val hiltVersion = "2.41"
 
