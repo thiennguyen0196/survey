@@ -4,6 +4,8 @@ import android.content.Context
 import com.thiennguyen.survey.data.BuildConfig
 import com.thiennguyen.survey.data.R
 import com.thiennguyen.survey.data.interceptor.AuthenticationInterceptor
+import com.thiennguyen.survey.data.interceptor.LogoutService
+import com.thiennguyen.survey.data.interceptor.TokenAuthenticator
 import com.thiennguyen.survey.data.local.PreferenceManager
 import com.thiennguyen.survey.data.service.SurveyService
 import com.thiennguyen.survey.domain.repository.AuthenticationRepository
@@ -39,12 +41,22 @@ class ServiceModule {
     @Provides
     @Singleton
     fun provideAuthenticationInterceptor(
-        preferenceManager: PreferenceManager,
-        authenticationRepository: Lazy<AuthenticationRepository>
+        preferenceManager: PreferenceManager
     ): AuthenticationInterceptor {
-        return AuthenticationInterceptor(
-            authenticationRepository = authenticationRepository,
-            preferenceManager = preferenceManager
+        return AuthenticationInterceptor(preferenceManager)
+    }
+
+    @Provides
+    @Singleton
+    fun provideTokenAuthenticator(
+        authenticationRepository: Lazy<AuthenticationRepository>,
+        preferenceManager: PreferenceManager,
+        logoutService: LogoutService
+    ): TokenAuthenticator {
+        return TokenAuthenticator(
+            repository = authenticationRepository,
+            preferenceManager = preferenceManager,
+            logoutService = logoutService
         )
     }
 
@@ -52,10 +64,12 @@ class ServiceModule {
     @Singleton
     fun provideOkHttpClient(
         loggingInterceptor: HttpLoggingInterceptor,
-        authenticationInterceptor: AuthenticationInterceptor
+        authenticationInterceptor: AuthenticationInterceptor,
+        tokenAuthenticator: TokenAuthenticator,
     ): OkHttpClient {
         return OkHttpClient().newBuilder()
             .addInterceptor(authenticationInterceptor)
+            .authenticator(tokenAuthenticator)
             .addInterceptor(loggingInterceptor)
             .connectTimeout(15, TimeUnit.SECONDS)
             .writeTimeout(15, TimeUnit.SECONDS)

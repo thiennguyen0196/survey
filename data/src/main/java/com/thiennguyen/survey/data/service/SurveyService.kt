@@ -3,9 +3,16 @@ package com.thiennguyen.survey.data.service
 import com.thiennguyen.survey.data.request.ResetPasswordRequest
 import com.thiennguyen.survey.data.request.LoginRequest
 import com.thiennguyen.survey.data.request.RefreshTokenRequest
-import com.thiennguyen.survey.data.response.*
+import com.thiennguyen.survey.data.response.UserResponse
+import com.thiennguyen.survey.data.response.ObjectResponse
+import com.thiennguyen.survey.data.response.LoginResponse
+import com.thiennguyen.survey.data.response.ObjectList
+import com.thiennguyen.survey.data.response.SurveyResponse
 import io.reactivex.rxjava3.core.Observable
-import retrofit2.http.*
+import retrofit2.http.POST
+import retrofit2.http.GET
+import retrofit2.http.Body
+import retrofit2.http.Query
 
 interface SurveyService {
 

@@ -7,13 +7,13 @@ import androidx.fragment.app.viewModels
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayoutMediator
-import com.thiennguyen.survey.R
 import com.thiennguyen.survey.base.BaseFragment
 import com.thiennguyen.survey.data.Constants
 import com.thiennguyen.survey.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Locale
+import java.util.Date
 
 @AndroidEntryPoint
 class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
@@ -78,7 +78,7 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
             Glide.with(requireContext())
                 .load(it)
                 .circleCrop()
-                .into(binding.ivAvatar);
+                .into(binding.ivAvatar)
         }
     }
 

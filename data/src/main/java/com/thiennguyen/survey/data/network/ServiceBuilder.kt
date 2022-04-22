@@ -1,17 +1,13 @@
 package com.thiennguyen.survey.data.network
 
 import android.content.Context
-import okhttp3.*
+import okhttp3.Authenticator
+import okhttp3.Interceptor
+import okhttp3.OkHttpClient
 import retrofit2.CallAdapter
 import retrofit2.Converter
 import retrofit2.Retrofit
-import java.net.Inet4Address
-import java.net.InetAddress
-import java.net.UnknownHostException
-import java.util.*
 import java.util.concurrent.TimeUnit
-import kotlin.collections.ArrayList
-import kotlin.collections.HashMap
 
 open class ServiceBuilder {
 

@@ -19,4 +19,10 @@ class Constants {
             const val PAGE_SIZE = 2
         }
     }
+
+    interface Retry {
+        companion object {
+            const val LIMIT = 3
+        }
+    }
 }
