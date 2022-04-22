@@ -116,6 +116,7 @@ object Mockito {
     private const val mockitoVersion = "4.0.0"
 
     const val core = "org.mockito:mockito-core:$mockitoVersion"
+    const val inline ="org.mockito:mockito-inline:$mockitoVersion"
     const val kotlin = "org.mockito.kotlin:mockito-kotlin:$mockitoVersion"
 }
 

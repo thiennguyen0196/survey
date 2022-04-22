@@ -24,7 +24,7 @@ class MetaResponse(
             message = this.message,
             page = this.page,
             pages = this.pages,
-            pageSize = this.page,
+            pageSize = this.pageSize,
             records = this.records
         )
     }
