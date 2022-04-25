@@ -2,9 +2,9 @@ package com.thiennguyen.survey.data.interceptor
 
 import com.thiennguyen.survey.data.Constants
 import com.thiennguyen.survey.data.local.PreferenceManager
+import javax.inject.Inject
 import okhttp3.Interceptor
 import okhttp3.Response
-import javax.inject.Inject
 
 class AuthenticationInterceptor @Inject constructor(
     private val preferenceManager: PreferenceManager

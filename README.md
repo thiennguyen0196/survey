@@ -13,9 +13,10 @@ Using Clean Architecture, the application provides a clean way to maintain and e
 - Presentation
 
 The overview architect look like this:
+
 ![image](https://user-images.githubusercontent.com/21035435/69536839-9f4c8e80-0fa0-11ea-85ee-d7823e5a46b0.png)
 
-## **3. Third-party libraries**
+## **2. Third-party libraries**
 Below is the list of third-party libraries that I use in the project:
 
 - **RxJava**
@@ -32,8 +33,9 @@ Below is the list of third-party libraries that I use in the project:
 - **Mockito**
 - **Robolectric**
 - **MockWebServer**
+- **Ktlint**
 
-## **4. Build the project on local**
+## **3. Build the project on local**
 - Contact Nimble team to get your own `CLIEND_ID` and `CLIENT_SECRET` key.
 - After cloning the repo, open Android Studio and update your client id and client secret key in `apikeys.properties` file.
 - Run build

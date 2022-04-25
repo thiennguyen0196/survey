@@ -10,8 +10,8 @@ import com.thiennguyen.survey.utils.RxUtils
 import com.thiennguyen.survey.utils.SingleLiveData
 import com.thiennguyen.survey.utils.add
 import dagger.hilt.android.lifecycle.HiltViewModel
-import timber.log.Timber
 import javax.inject.Inject
+import timber.log.Timber
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(

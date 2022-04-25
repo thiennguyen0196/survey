@@ -4,14 +4,14 @@ import com.thiennguyen.survey.data.Constants
 import com.thiennguyen.survey.data.local.PreferenceManager
 import com.thiennguyen.survey.domain.repository.AuthenticationRepository
 import dagger.Lazy
+import java.lang.Exception
+import java.net.HttpURLConnection
+import java.util.concurrent.TimeUnit
 import okhttp3.Authenticator
 import okhttp3.Request
 import okhttp3.Response
 import okhttp3.Route
 import timber.log.Timber
-import java.lang.Exception
-import java.net.HttpURLConnection
-import java.util.concurrent.TimeUnit
 
 class TokenAuthenticator(
     private val repository: Lazy<AuthenticationRepository>,

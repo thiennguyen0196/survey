@@ -55,7 +55,6 @@ class PreferenceManager @Inject constructor(private val context: Context) {
         return getBool(IS_LOGGED_IN)
     }
 
-
     private fun getString(key: String): String? {
         return preferences.getString(key, null)
     }

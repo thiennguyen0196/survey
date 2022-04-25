@@ -1,18 +1,23 @@
 package com.thiennguyen.survey.data.repository
 
-import com.thiennguyen.survey.data.local.PreferenceManager
 import com.thiennguyen.survey.data.base.BaseRepositoryTest
+import com.thiennguyen.survey.data.local.PreferenceManager
 import com.thiennguyen.survey.data.service.SurveyService
 import com.thiennguyen.survey.domain.model.MetaModel
 import io.reactivex.rxjava3.observers.TestObserver
+import java.net.HttpURLConnection
+import java.util.concurrent.TimeUnit
 import org.junit.Test
 import org.mockito.Mockito.anyLong
 import org.mockito.Mockito.anyString
 import org.mockito.Mockito.spy
-import org.mockito.kotlin.*
+import org.mockito.kotlin.doNothing
+import org.mockito.kotlin.mock
+import org.mockito.kotlin.never
+import org.mockito.kotlin.times
+import org.mockito.kotlin.verify
+import org.mockito.kotlin.whenever
 import retrofit2.HttpException
-import java.net.HttpURLConnection
-import java.util.concurrent.TimeUnit
 
 class AuthenticationRepositoryImplTest : BaseRepositoryTest() {
 
@@ -154,7 +159,7 @@ class AuthenticationRepositoryImplTest : BaseRepositoryTest() {
         testObserver.awaitDone(10, TimeUnit.SECONDS)
         testObserver.assertComplete()
         testObserver.assertNoErrors()
-        testObserver.assertValue { it.message == "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes." }
+        testObserver.assertValue { it.message == "testing message" }
     }
 
     @Test

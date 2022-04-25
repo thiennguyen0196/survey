@@ -2,7 +2,6 @@ package com.thiennguyen.survey.data.request
 
 import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
-import com.thiennguyen.survey.data.BuildConfig
 import com.thiennguyen.survey.data.annotation.GrantType
 
 @Keep

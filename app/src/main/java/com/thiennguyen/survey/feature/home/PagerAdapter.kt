@@ -33,4 +33,3 @@ class PagerAdapter : RecyclerView.Adapter<PagerViewHolder>() {
         holder.bind(currentSurveyList[position])
     }
 }
-

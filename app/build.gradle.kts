@@ -1,11 +1,9 @@
 plugins {
     id ("com.android.application")
     id ("org.jetbrains.kotlin.android")
-    id("kotlin-android")
-    id("kotlin-kapt")
-    id("kotlin-parcelize")
     id("dagger.hilt.android.plugin")
     id("androidx.navigation.safeargs.kotlin")
+    id("survey-plugin")
 }
 
 android {
@@ -72,6 +70,7 @@ android {
     buildFeatures {
         viewBinding = true
     }
+
     lint {
         xmlOutput = file("build/reports/lint/lint-result.xml")
         xmlReport = true
