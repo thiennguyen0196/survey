@@ -9,7 +9,9 @@ import com.thiennguyen.survey.data.request.ResetPasswordRequest
 import com.thiennguyen.survey.data.request.UserInfoRequest
 import com.thiennguyen.survey.data.response.LoginAttributesResponse
 import com.thiennguyen.survey.data.service.SurveyService
+import com.thiennguyen.survey.domain.model.Email
 import com.thiennguyen.survey.domain.model.MetaModel
+import com.thiennguyen.survey.domain.model.Password
 import com.thiennguyen.survey.domain.repository.AuthenticationRepository
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Observable
@@ -20,12 +22,12 @@ class AuthenticationRepositoryImpl @Inject constructor(
     private val preferenceManager: PreferenceManager
 ) : AuthenticationRepository {
 
-    override fun submitLogin(email: String, password: String): Completable {
+    override fun submitLogin(email: Email, password: Password): Completable {
         return surveyService.submitLogin(
             LoginRequest(
                 grantType = GrantType.PASSWORD,
-                email = email,
-                password = password,
+                email = email.value,
+                password = password.value,
                 clientId = BuildConfig.CLIENT_ID,
                 clientSecret = BuildConfig.CLIENT_SECRET
             )
@@ -63,10 +65,10 @@ class AuthenticationRepositoryImpl @Inject constructor(
         }
     }
 
-    override fun resetPassword(email: String): Observable<MetaModel> {
+    override fun resetPassword(email: Email): Observable<MetaModel> {
         return surveyService.resetPassword(
             ResetPasswordRequest(
-                user = UserInfoRequest(email = email),
+                user = UserInfoRequest(email = email.value),
                 clientId = BuildConfig.CLIENT_ID,
                 clientSecret = BuildConfig.CLIENT_SECRET
             )

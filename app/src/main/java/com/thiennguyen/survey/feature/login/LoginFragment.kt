@@ -7,6 +7,8 @@ import androidx.fragment.app.viewModels
 import com.thiennguyen.survey.R
 import com.thiennguyen.survey.base.BaseFragment
 import com.thiennguyen.survey.databinding.FragmentLoginBinding
+import com.thiennguyen.survey.domain.model.Email
+import com.thiennguyen.survey.domain.model.Password
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -22,8 +24,8 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>() {
 
         binding.btnLogin.setOnClickListener {
             viewModel.submitLogin(
-                email = binding.etEmail.text.toString(),
-                password = binding.etPassword.text.toString()
+                email = Email(binding.etEmail.text.toString()),
+                password = Password(binding.etPassword.text.toString())
             )
         }
         binding.tvForgot.setOnClickListener {

@@ -3,7 +3,9 @@ package com.thiennguyen.survey.data.repository
 import com.thiennguyen.survey.data.base.BaseRepositoryTest
 import com.thiennguyen.survey.data.local.PreferenceManager
 import com.thiennguyen.survey.data.service.SurveyService
+import com.thiennguyen.survey.domain.model.Email
 import com.thiennguyen.survey.domain.model.MetaModel
+import com.thiennguyen.survey.domain.model.Password
 import io.reactivex.rxjava3.observers.TestObserver
 import java.net.HttpURLConnection
 import java.util.concurrent.TimeUnit
@@ -46,7 +48,7 @@ class AuthenticationRepositoryImplTest : BaseRepositoryTest() {
 
         val testObserver = TestObserver<Unit>()
         doNothing().`when`(preferenceManager).setTokenData(anyString(), anyString(), anyString(), anyLong(), anyLong())
-        repository.submitLogin("", "").subscribe(testObserver)
+        repository.submitLogin(Email(""), Password("")).subscribe(testObserver)
 
         testObserver.awaitDone(10, TimeUnit.SECONDS)
         testObserver.assertComplete()
@@ -60,7 +62,7 @@ class AuthenticationRepositoryImplTest : BaseRepositoryTest() {
         fakeResponseBodyFile(DATA_NULL_RESPONSE, HttpURLConnection.HTTP_OK)
 
         val testObserver = TestObserver<Unit>()
-        repository.submitLogin("", "").subscribe(testObserver)
+        repository.submitLogin(Email(""), Password("")).subscribe(testObserver)
 
         testObserver.awaitDone(10, TimeUnit.SECONDS)
         testObserver.assertNotComplete()
@@ -74,7 +76,7 @@ class AuthenticationRepositoryImplTest : BaseRepositoryTest() {
         fakeResponseBodyFile(SERVER_FAIL, HttpURLConnection.HTTP_INTERNAL_ERROR)
 
         val testObserver = TestObserver<Unit>()
-        repository.submitLogin("", "").subscribe(testObserver)
+        repository.submitLogin(Email(""), Password("")).subscribe(testObserver)
 
         testObserver.awaitDone(10, TimeUnit.SECONDS)
         testObserver.assertNotComplete()
@@ -154,7 +156,7 @@ class AuthenticationRepositoryImplTest : BaseRepositoryTest() {
         fakeResponseBodyFile(FORGOT_PASSWORD_RESPONSE, HttpURLConnection.HTTP_OK)
 
         val testObserver = TestObserver<MetaModel>()
-        repository.resetPassword("").subscribe(testObserver)
+        repository.resetPassword(Email("")).subscribe(testObserver)
 
         testObserver.awaitDone(10, TimeUnit.SECONDS)
         testObserver.assertComplete()
@@ -167,7 +169,7 @@ class AuthenticationRepositoryImplTest : BaseRepositoryTest() {
         fakeResponseBodyFile(META_NULL_RESPONSE, HttpURLConnection.HTTP_OK)
 
         val testObserver = TestObserver<MetaModel>()
-        repository.resetPassword("").subscribe(testObserver)
+        repository.resetPassword(Email("")).subscribe(testObserver)
 
         testObserver.awaitDone(10, TimeUnit.SECONDS)
         testObserver.assertComplete()
@@ -180,7 +182,7 @@ class AuthenticationRepositoryImplTest : BaseRepositoryTest() {
         fakeResponseBodyFile(SERVER_FAIL, HttpURLConnection.HTTP_INTERNAL_ERROR)
 
         val testObserver = TestObserver<MetaModel>()
-        repository.resetPassword("").subscribe(testObserver)
+        repository.resetPassword(Email("")).subscribe(testObserver)
 
         testObserver.awaitDone(10, TimeUnit.SECONDS)
         testObserver.assertNotComplete()
