@@ -6,11 +6,11 @@ import com.thiennguyen.survey.domain.model.MetaModel
 import com.thiennguyen.survey.domain.model.SurveyModel
 import com.thiennguyen.survey.domain.model.UserModel
 import io.reactivex.rxjava3.observers.TestObserver
+import java.net.HttpURLConnection
+import java.util.concurrent.TimeUnit
 import org.junit.Test
 import org.mockito.Mockito
 import retrofit2.HttpException
-import java.net.HttpURLConnection
-import java.util.concurrent.TimeUnit
 
 class SurveyRepositoryImplTest : BaseRepositoryTest() {
 
@@ -70,7 +70,6 @@ class SurveyRepositoryImplTest : BaseRepositoryTest() {
         testObserver.assertNotComplete()
         testObserver.assertError { it is NullPointerException }
     }
-
 
     @Test
     fun `When getting survey list fail, then return error`() {

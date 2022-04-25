@@ -3,9 +3,7 @@ import java.io.FileInputStream
 
 plugins {
     id ("com.android.library")
-    id("kotlin-android")
-    id("kotlin-kapt")
-    id("kotlin-parcelize")
+    id("survey-plugin")
 }
 
 val apikeyPropertiesFile = rootProject.file("apikeys.properties")

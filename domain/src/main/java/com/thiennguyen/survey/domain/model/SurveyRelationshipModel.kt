@@ -6,4 +6,4 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class SurveyRelationshipModel(
     val questions: SurveyQuestionsModel? = null
-): Parcelable
+) : Parcelable

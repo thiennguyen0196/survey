@@ -8,4 +8,4 @@ data class UserAttributesModel(
     val email: String? = null,
 
     val avatarUrl: String? = null
-): Parcelable
+) : Parcelable

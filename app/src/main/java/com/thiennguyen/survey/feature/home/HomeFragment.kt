@@ -12,8 +12,8 @@ import com.thiennguyen.survey.data.Constants
 import com.thiennguyen.survey.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
-import java.util.Locale
 import java.util.Date
+import java.util.Locale
 
 @AndroidEntryPoint
 class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
@@ -32,7 +32,11 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
                 binding.swipeRefreshLayout.isEnabled = state == ViewPager2.SCROLL_STATE_IDLE
             }
 
-            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+            override fun onPageScrolled(
+                position: Int,
+                positionOffset: Float,
+                positionOffsetPixels: Int
+            ) {
                 super.onPageScrolled(position, positionOffset, positionOffsetPixels)
                 if (position == pagerAdapter.itemCount - 1) {
                     this@HomeFragment.viewModel.getSurveyList()

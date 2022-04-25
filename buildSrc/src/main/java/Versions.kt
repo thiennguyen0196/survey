@@ -119,3 +119,10 @@ object MockWebServer {
 
     const val mock_web_server = "com.squareup.okhttp3:mockwebserver:$mockWebServerVersion"
 }
+
+object Ktlint {
+
+    private const val ktlintVersion = "0.45.2"
+
+    const val ktlint = "com.pinterest:ktlint:$ktlintVersion"
+}

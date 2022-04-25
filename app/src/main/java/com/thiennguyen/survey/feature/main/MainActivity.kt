@@ -1,7 +1,7 @@
 package com.thiennguyen.survey.feature.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.thiennguyen.survey.R
 import com.thiennguyen.survey.base.OnBackPressedListener

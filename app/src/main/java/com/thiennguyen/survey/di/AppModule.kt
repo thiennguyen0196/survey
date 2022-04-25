@@ -1,8 +1,8 @@
 package com.thiennguyen.survey.di
 
 import android.content.Context
-import com.thiennguyen.survey.service.LogoutServiceImpl
 import com.thiennguyen.survey.data.interceptor.LogoutService
+import com.thiennguyen.survey.service.LogoutServiceImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

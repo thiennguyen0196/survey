@@ -1,13 +1,13 @@
 package com.thiennguyen.survey.data.network
 
 import android.content.Context
+import java.util.concurrent.TimeUnit
 import okhttp3.Authenticator
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.CallAdapter
 import retrofit2.Converter
 import retrofit2.Retrofit
-import java.util.concurrent.TimeUnit
 
 open class ServiceBuilder {
 
