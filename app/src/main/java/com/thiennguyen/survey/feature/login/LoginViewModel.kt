@@ -1,7 +1,8 @@
 package com.thiennguyen.survey.feature.login
 
-import android.util.Patterns
 import com.thiennguyen.survey.base.BaseViewModel
+import com.thiennguyen.survey.domain.model.Email
+import com.thiennguyen.survey.domain.model.Password
 import com.thiennguyen.survey.domain.usecase.LoginUseCase
 import com.thiennguyen.survey.utils.RxUtils
 import com.thiennguyen.survey.utils.SingleLiveData
@@ -22,12 +23,12 @@ class LoginViewModel @Inject constructor(
 
     val onLoginStateChanged = SingleLiveData<LoginState>()
 
-    fun submitLogin(email: String, password: String) {
+    fun submitLogin(email: Email, password: Password) {
         when {
-            email.isBlank() || !Patterns.EMAIL_ADDRESS.matcher(email).matches() -> {
+            email.isValid().not() -> {
                 onLoginStateChanged.postValue(LoginState.EmailInvalid)
             }
-            password.isBlank() -> {
+            password.isValid().not() -> {
                 onLoginStateChanged.postValue(LoginState.PasswordInvalid)
             }
             else -> {

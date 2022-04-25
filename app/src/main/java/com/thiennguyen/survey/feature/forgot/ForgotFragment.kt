@@ -13,6 +13,7 @@ import com.google.android.material.snackbar.Snackbar.SnackbarLayout
 import com.thiennguyen.survey.R
 import com.thiennguyen.survey.base.BaseFragment
 import com.thiennguyen.survey.databinding.FragmentForgotBinding
+import com.thiennguyen.survey.domain.model.Email
 import com.thiennguyen.survey.feature.view.TopSnackBarView
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -29,7 +30,7 @@ class ForgotFragment : BaseFragment<ForgotViewModel, FragmentForgotBinding>() {
 
         binding.btnReset.setOnClickListener {
             viewModel.resetPassword(
-                email = binding.etEmail.text.toString()
+                email = Email(binding.etEmail.text.toString())
             )
         }
         binding.ivBack.setOnClickListener {

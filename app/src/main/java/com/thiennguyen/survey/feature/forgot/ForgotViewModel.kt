@@ -1,7 +1,7 @@
 package com.thiennguyen.survey.feature.forgot
 
-import android.util.Patterns
 import com.thiennguyen.survey.base.BaseViewModel
+import com.thiennguyen.survey.domain.model.Email
 import com.thiennguyen.survey.domain.usecase.ResetPasswordUseCase
 import com.thiennguyen.survey.utils.RxUtils
 import com.thiennguyen.survey.utils.SingleLiveData
@@ -21,9 +21,9 @@ class ForgotViewModel@Inject constructor(
 
     val onResetPasswordChange = SingleLiveData<ResetPasswordState>()
 
-    fun resetPassword(email: String) {
+    fun resetPassword(email: Email) {
         when {
-            email.isBlank() || !Patterns.EMAIL_ADDRESS.matcher(email).matches() -> {
+            email.isValid().not() -> {
                 onResetPasswordChange.postValue(ResetPasswordState.EmailInvalid)
             }
             else -> {
