@@ -13,9 +13,11 @@ data class SurveyDataResponse(
     val type: String? = null
 ) {
     fun mapToModel(): SurveyDataModel {
-        return SurveyDataModel(
-            id = this.id,
-            type = this.type
-        )
+        return with(this) {
+            SurveyDataModel(
+                id = id,
+                type = type
+            )
+        }
     }
 }

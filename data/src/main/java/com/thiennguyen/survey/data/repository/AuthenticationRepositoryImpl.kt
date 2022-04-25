@@ -7,6 +7,7 @@ import com.thiennguyen.survey.data.request.LoginRequest
 import com.thiennguyen.survey.data.request.RefreshTokenRequest
 import com.thiennguyen.survey.data.request.ResetPasswordRequest
 import com.thiennguyen.survey.data.request.UserInfoRequest
+import com.thiennguyen.survey.data.response.LoginAttributesResponse
 import com.thiennguyen.survey.data.service.SurveyService
 import com.thiennguyen.survey.domain.model.MetaModel
 import com.thiennguyen.survey.domain.repository.AuthenticationRepository
@@ -30,14 +31,10 @@ class AuthenticationRepositoryImpl @Inject constructor(
             )
         )
             .map { it.data!! }
-            .doOnNext {
-                preferenceManager.setTokenData(
-                    accessToken = it.attributes?.accessToken,
-                    refreshToken = it.attributes?.refreshToken,
-                    tokenType = it.attributes?.tokenType,
-                    createdAt = it.attributes?.createdAt,
-                    expiredIn = it.attributes?.expiresIn
-                )
+            .doOnNext { loginResponse ->
+                loginResponse.attributes?.let { loginAttributeResponse ->
+                    saveTokenData(loginAttributeResponse)
+                }
             }
             .ignoreElements()
     }
@@ -52,14 +49,10 @@ class AuthenticationRepositoryImpl @Inject constructor(
             )
         )
             .map { it.data!! }
-            .doOnNext {
-                preferenceManager.setTokenData(
-                    accessToken = it.attributes?.accessToken,
-                    refreshToken = it.attributes?.refreshToken,
-                    tokenType = it.attributes?.tokenType,
-                    createdAt = it.attributes?.createdAt,
-                    expiredIn = it.attributes?.expiresIn
-                )
+            .doOnNext { loginResponse ->
+                loginResponse.attributes?.let { loginAttributeResponse ->
+                    saveTokenData(loginAttributeResponse)
+                }
             }
             .ignoreElements()
     }
@@ -79,5 +72,17 @@ class AuthenticationRepositoryImpl @Inject constructor(
             )
         )
             .map { it.meta?.mapToModel() ?: MetaModel() }
+    }
+
+    private fun saveTokenData(loginResponseAttribute: LoginAttributesResponse) {
+        with(loginResponseAttribute) {
+            preferenceManager.setTokenData(
+                accessToken = accessToken,
+                refreshToken = refreshToken,
+                tokenType = tokenType,
+                createdAt = createdAt,
+                expiredIn = expiresIn
+            )
+        }
     }
 }

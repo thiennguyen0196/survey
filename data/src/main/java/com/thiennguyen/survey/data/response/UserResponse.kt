@@ -16,10 +16,12 @@ data class UserResponse(
     val attributes: UserAttributesResponse? = null
 ) {
     fun mapToModel(): UserModel {
-        return UserModel(
-            id = this.id,
-            type = this.type,
-            attributes = this.attributes?.mapToModel()
-        )
+        return with(this) {
+            UserModel(
+                id = id,
+                type = type,
+                attributes = attributes?.mapToModel()
+            )
+        }
     }
 }

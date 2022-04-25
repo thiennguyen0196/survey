@@ -39,16 +39,18 @@ data class SurveyAttributesResponse(
 ) : Parcelable {
 
     fun mapToModel(): SurveyAttributesModel {
-        return SurveyAttributesModel(
-            title = this.title,
-            description = this.description,
-            thankEmailAboveThreshold = this.thankEmailAboveThreshold,
-            thankEmailBelowThreshold = this.thankEmailBelowThreshold,
-            isActive = this.isActive,
-            coverImageUrl = this.coverImageUrl,
-            createdAt = this.createdAt,
-            inactiveAt = this.inactiveAt,
-            surveyType = this.surveyType
-        )
+        return with(this) {
+            SurveyAttributesModel(
+                title = title,
+                description = description,
+                thankEmailAboveThreshold = thankEmailAboveThreshold,
+                thankEmailBelowThreshold = thankEmailBelowThreshold,
+                isActive = isActive,
+                coverImageUrl = coverImageUrl,
+                createdAt = createdAt,
+                inactiveAt = inactiveAt,
+                surveyType = surveyType
+            )
+        }
     }
 }
