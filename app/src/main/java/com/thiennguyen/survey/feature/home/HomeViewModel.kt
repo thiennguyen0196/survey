@@ -1,5 +1,6 @@
 package com.thiennguyen.survey.feature.home
 
+import androidx.lifecycle.MutableLiveData
 import com.thiennguyen.survey.base.BaseViewModel
 import com.thiennguyen.survey.data.Constants
 import com.thiennguyen.survey.domain.model.MetaModel
@@ -28,7 +29,7 @@ class HomeViewModel @Inject constructor(
 
     var loadMoreDataSet = LoadMoreDataSet()
     val onSurveyListChange = SingleLiveData<List<SurveyModel>>()
-    val onUserProfileAvatarChange = SingleLiveData<String>()
+    val onUserProfileAvatarChange = MutableLiveData<String>()
 
     init {
         getSurveyList()
