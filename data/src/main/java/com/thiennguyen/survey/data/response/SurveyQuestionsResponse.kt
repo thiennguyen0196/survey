@@ -10,10 +10,12 @@ data class SurveyQuestionsResponse(
     val data: List<SurveyDataResponse>? = null
 ) {
     fun mapToModel(): SurveyQuestionsModel {
-        return SurveyQuestionsModel(
-            data = this.data?.map {
-                it.mapToModel()
-            }
-        )
+        return with(this) {
+            SurveyQuestionsModel(
+                data = data?.map { dataItemResponse ->
+                    dataItemResponse.mapToModel()
+                }
+            )
+        }
     }
 }

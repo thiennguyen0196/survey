@@ -19,11 +19,13 @@ data class SurveyResponse(
     val relationships: SurveyRelationshipResponse? = null
 ) {
     fun mapToModel(): SurveyModel {
-        return SurveyModel(
-            id = this.id,
-            type = this.type,
-            attributes = this.attributes?.mapToModel(),
-            relationships = this.relationships?.mapToModel()
-        )
+        return with(this) {
+            SurveyModel(
+                id = id,
+                type = type,
+                attributes = attributes?.mapToModel(),
+                relationships = relationships?.mapToModel()
+            )
+        }
     }
 }

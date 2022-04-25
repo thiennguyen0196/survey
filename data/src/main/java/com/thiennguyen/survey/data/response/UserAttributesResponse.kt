@@ -13,9 +13,11 @@ data class UserAttributesResponse(
     val avatarUrl: String? = null
 ) {
     fun mapToModel(): UserAttributesModel {
-        return UserAttributesModel(
-            email = this.email,
-            avatarUrl = this.avatarUrl
-        )
+        return with(this) {
+            UserAttributesModel(
+                email = email,
+                avatarUrl = avatarUrl
+            )
+        }
     }
 }

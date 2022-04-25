@@ -20,12 +20,14 @@ class MetaResponse(
     val records: Int? = null
 ) {
     fun mapToModel(): MetaModel {
-        return MetaModel(
-            message = this.message,
-            page = this.page,
-            pages = this.pages,
-            pageSize = this.pageSize,
-            records = this.records
-        )
+        return with(this) {
+            MetaModel(
+                message = message,
+                page = page,
+                pages = pages,
+                pageSize = pageSize,
+                records = records
+            )
+        }
     }
 }
