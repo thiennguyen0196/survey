@@ -4,7 +4,7 @@ import com.thiennguyen.survey.data.Constants
 import com.thiennguyen.survey.data.local.PreferenceManager
 import com.thiennguyen.survey.domain.repository.AuthenticationRepository
 import dagger.Lazy
-import java.lang.Exception
+import io.reactivex.rxjava3.plugins.RxJavaPlugins
 import java.net.HttpURLConnection
 import java.util.concurrent.TimeUnit
 import okhttp3.Authenticator
@@ -31,14 +31,13 @@ class TokenAuthenticator(
                         return appendToken(response, tokenType, newAccessToken)
                     }
                     if (retryCount(response) < Constants.Retry.LIMIT) {
-                        try {
-                            repository.get().refreshToken(preferenceManager.getRefreshToken().orEmpty())
-                                .timeout(15, TimeUnit.SECONDS)
-                                .blockingSubscribe()
-                            return appendToken(response, tokenType, preferenceManager.getAccessToken().orEmpty())
-                        } catch (e: Exception) {
-                            Timber.i("Refreshing token failed, retry again >>> $e")
+                        RxJavaPlugins.setErrorHandler {
+                            Timber.i("Refreshing token failed, retry again >>> $it")
                         }
+                        repository.get().refreshToken(preferenceManager.getRefreshToken().orEmpty())
+                            .timeout(15, TimeUnit.SECONDS)
+                            .blockingSubscribe()
+                        return appendToken(response, tokenType, preferenceManager.getAccessToken().orEmpty())
                     } else {
                         Timber.i("Retrying to refresh token is out of limit, start logout service")
                         preferenceManager.clear()

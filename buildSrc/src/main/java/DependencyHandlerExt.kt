@@ -83,3 +83,7 @@ fun DependencyHandler.addMockWebServer(configurationName: String = "testImplemen
 fun DependencyHandler.addRobolectric(configurationName: String = "testImplementation") {
     add(configurationName, Robolectric.robolectric)
 }
+
+fun DependencyHandler.addGson(configurationName: String = "testImplementation") {
+    add(configurationName, Gson.gson)
+}
