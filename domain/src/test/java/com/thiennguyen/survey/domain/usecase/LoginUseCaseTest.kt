@@ -1,9 +1,9 @@
 package com.thiennguyen.survey.domain.usecase
 
+import com.thiennguyen.survey.domain.base.BaseUseCaseTest
 import com.thiennguyen.survey.domain.model.Email
 import com.thiennguyen.survey.domain.model.Password
 import com.thiennguyen.survey.domain.repository.AuthenticationRepository
-import com.thiennguyen.survey.domain.usecase.base.BaseUseCaseTest
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.observers.TestObserver
 import org.junit.Test
@@ -36,7 +36,7 @@ class LoginUseCaseTest : BaseUseCaseTest() {
     }
 
     @Test
-    fun `When repository return error while logging, then use case emit error`() {
+    fun `When repository return error while logging, then use case emits error`() {
         val email = Email("")
         val password = Password("")
         val testObserver = TestObserver<Unit>()

@@ -131,3 +131,10 @@ object Gson {
 
     const val gson = "com.google.code.gson:gson:$gsonVersion"
 }
+
+object AndroidArch {
+
+    private const val archVersion = "2.1.0"
+
+    const val core_testing = "androidx.arch.core:core-testing:$archVersion"
+}

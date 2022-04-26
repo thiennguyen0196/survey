@@ -1,9 +1,9 @@
 package com.thiennguyen.survey.domain.usecase
 
+import com.thiennguyen.survey.domain.base.BaseUseCaseTest
 import com.thiennguyen.survey.domain.model.Email
 import com.thiennguyen.survey.domain.model.MetaModel
 import com.thiennguyen.survey.domain.repository.AuthenticationRepository
-import com.thiennguyen.survey.domain.usecase.base.BaseUseCaseTest
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.observers.TestObserver
 import org.junit.Test
@@ -37,7 +37,7 @@ class ResetPasswordUseCaseTest : BaseUseCaseTest() {
     }
 
     @Test
-    fun `When repository return complete reset password, then use case emit error`() {
+    fun `When repository return complete reset password, then use case emits error`() {
         val email = Email("")
         val testObserver = TestObserver<MetaModel>()
 

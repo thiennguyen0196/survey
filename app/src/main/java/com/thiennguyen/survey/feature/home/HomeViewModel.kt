@@ -1,5 +1,6 @@
 package com.thiennguyen.survey.feature.home
 
+import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.MutableLiveData
 import com.thiennguyen.survey.base.BaseViewModel
 import com.thiennguyen.survey.data.Constants
@@ -57,7 +58,8 @@ class HomeViewModel @Inject constructor(
             }).add(this)
     }
 
-    private fun getUserProfile() {
+    @VisibleForTesting
+    fun getUserProfile() {
         getUserProfileUseCase.getUserProfile()
             .compose(RxUtils.applyObservableSchedulers())
             .subscribe({
@@ -67,7 +69,8 @@ class HomeViewModel @Inject constructor(
             }).add(this)
     }
 
-    private fun calculateLoadMoreDataSet(meta: MetaModel) {
+    @VisibleForTesting
+    fun calculateLoadMoreDataSet(meta: MetaModel) {
         loadMoreDataSet.isLoading = false
         loadMoreDataSet.page = (meta.page ?: Constants.Page.PAGE_NUMBER) + 1
         if (loadMoreDataSet.page > meta.pages ?: Constants.Page.PAGE_NUMBER) {

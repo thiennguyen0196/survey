@@ -1,9 +1,9 @@
 package com.thiennguyen.survey.domain.usecase
 
+import com.thiennguyen.survey.domain.base.BaseUseCaseTest
 import com.thiennguyen.survey.domain.model.UserAttributesModel
 import com.thiennguyen.survey.domain.model.UserModel
 import com.thiennguyen.survey.domain.repository.SurveyRepository
-import com.thiennguyen.survey.domain.usecase.base.BaseUseCaseTest
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.observers.TestObserver
 import java.util.UUID
@@ -46,7 +46,7 @@ class GetUserProfileUseCaseTest : BaseUseCaseTest() {
     }
 
     @Test
-    fun `When repository return null, then use case emit error`() {
+    fun `When repository return null, then use case emits error`() {
         val testObserver = TestObserver<UserModel>()
 
         whenever(repository.getUserProfile()).thenReturn(Observable.error(NullPointerException()))

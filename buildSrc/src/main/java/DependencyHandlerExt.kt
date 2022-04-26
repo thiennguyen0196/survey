@@ -87,3 +87,7 @@ fun DependencyHandler.addRobolectric(configurationName: String = "testImplementa
 fun DependencyHandler.addGson(configurationName: String = "testImplementation") {
     add(configurationName, Gson.gson)
 }
+
+fun DependencyHandler.addAndroidArchCoreTesting(configurationName: String = "testImplementation") {
+    add(configurationName, AndroidArch.core_testing)
+}

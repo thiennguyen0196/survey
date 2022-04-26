@@ -1,4 +1,4 @@
-package com.thiennguyen.survey.domain.usecase.base
+package com.thiennguyen.survey.domain.base
 
 import org.junit.Before
 import org.mockito.MockitoAnnotations

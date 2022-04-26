@@ -115,4 +115,5 @@ dependencies {
     addJunit()
     addMockito()
     addRobolectric()
+    addAndroidArchCoreTesting()
 }

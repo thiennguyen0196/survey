@@ -1,5 +1,6 @@
 package com.thiennguyen.survey.domain.usecase
 
+import com.thiennguyen.survey.domain.base.BaseUseCaseTest
 import com.thiennguyen.survey.domain.model.MetaModel
 import com.thiennguyen.survey.domain.model.SurveyAttributesModel
 import com.thiennguyen.survey.domain.model.SurveyDataModel
@@ -7,7 +8,6 @@ import com.thiennguyen.survey.domain.model.SurveyModel
 import com.thiennguyen.survey.domain.model.SurveyQuestionsModel
 import com.thiennguyen.survey.domain.model.SurveyRelationshipModel
 import com.thiennguyen.survey.domain.repository.SurveyRepository
-import com.thiennguyen.survey.domain.usecase.base.BaseUseCaseTest
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.observers.TestObserver
 import java.util.UUID
@@ -73,7 +73,7 @@ class GetSurveyListUseCaseTest : BaseUseCaseTest() {
     }
 
     @Test
-    fun `When repository return null, then use case emit error`() {
+    fun `When repository return null, then use case emits error`() {
         val testObserver = TestObserver<Pair<MetaModel, List<SurveyModel>>>()
 
         whenever(repository.getSurveyList(any(), any())).thenReturn(Observable.error(NullPointerException()))

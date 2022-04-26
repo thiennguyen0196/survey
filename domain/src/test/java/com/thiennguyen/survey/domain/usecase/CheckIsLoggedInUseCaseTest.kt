@@ -1,7 +1,7 @@
 package com.thiennguyen.survey.domain.usecase
 
+import com.thiennguyen.survey.domain.base.BaseUseCaseTest
 import com.thiennguyen.survey.domain.repository.AuthenticationRepository
-import com.thiennguyen.survey.domain.usecase.base.BaseUseCaseTest
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.observers.TestObserver
 import org.junit.Test
