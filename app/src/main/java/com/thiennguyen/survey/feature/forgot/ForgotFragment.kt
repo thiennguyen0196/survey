@@ -14,7 +14,7 @@ import com.thiennguyen.survey.R
 import com.thiennguyen.survey.base.BaseFragment
 import com.thiennguyen.survey.databinding.FragmentForgotBinding
 import com.thiennguyen.survey.domain.model.Email
-import com.thiennguyen.survey.feature.view.TopSnackBarView
+import com.thiennguyen.survey.view.TopSnackBarView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

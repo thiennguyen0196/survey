@@ -83,3 +83,11 @@ fun DependencyHandler.addMockWebServer(configurationName: String = "testImplemen
 fun DependencyHandler.addRobolectric(configurationName: String = "testImplementation") {
     add(configurationName, Robolectric.robolectric)
 }
+
+fun DependencyHandler.addGson(configurationName: String = "testImplementation") {
+    add(configurationName, Gson.gson)
+}
+
+fun DependencyHandler.addAndroidArchCoreTesting(configurationName: String = "testImplementation") {
+    add(configurationName, AndroidArch.core_testing)
+}

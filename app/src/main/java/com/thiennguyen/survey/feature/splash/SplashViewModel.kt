@@ -4,6 +4,7 @@ import com.thiennguyen.survey.base.BaseViewModel
 import com.thiennguyen.survey.domain.usecase.CheckIsLoggedInUseCase
 import com.thiennguyen.survey.utils.RxUtils
 import com.thiennguyen.survey.utils.SingleLiveData
+import com.thiennguyen.survey.utils.add
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import timber.log.Timber
@@ -31,6 +32,6 @@ class SplashViewModel @Inject constructor(
             }, {
                 Timber.i(it)
                 onIsLoggedInStateChange.postValue(LoggedInState.NotLoggedIn)
-            })
+            }).add(this)
     }
 }

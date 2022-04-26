@@ -1,7 +1,7 @@
 package com.thiennguyen.survey.data.base
 
 import com.google.gson.Gson
-import com.thiennguyen.survey.data.testutils.TestUtils
+import com.thiennguyen.survey.data.utils.TestUtils
 import okhttp3.OkHttpClient
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
@@ -17,7 +17,7 @@ abstract class BaseRepositoryTest {
     lateinit var mockWebServer: MockWebServer
     lateinit var retrofit: Retrofit
 
-    protected open val gson: Gson? = null
+    protected open val gson: Gson by lazy { Gson() }
 
     @Before
     open fun setUp() {
@@ -32,7 +32,7 @@ abstract class BaseRepositoryTest {
         retrofit = Retrofit.Builder()
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .baseUrl(mockWebServer.url("/"))
-            .addConverterFactory(GsonConverterFactory.create(gson ?: Gson()))
+            .addConverterFactory(GsonConverterFactory.create(gson))
             .client(okHttpClient)
             .build()
     }

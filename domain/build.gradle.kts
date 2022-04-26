@@ -59,4 +59,7 @@ dependencies {
     // Unit testing
     addJunit()
     addMockito()
+
+    // Gson
+    addGson()
 }

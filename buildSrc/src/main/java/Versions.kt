@@ -110,7 +110,7 @@ object Mockito {
     private const val mockitoVersion = "4.0.0"
 
     const val core = "org.mockito:mockito-core:$mockitoVersion"
-    const val inline ="org.mockito:mockito-inline:$mockitoVersion"
+    const val inline = "org.mockito:mockito-inline:$mockitoVersion"
     const val kotlin = "org.mockito.kotlin:mockito-kotlin:$mockitoVersion"
 }
 
@@ -121,8 +121,20 @@ object MockWebServer {
 }
 
 object Ktlint {
-
     private const val ktlintVersion = "0.45.2"
 
     const val ktlint = "com.pinterest:ktlint:$ktlintVersion"
+}
+
+object Gson {
+    private const val gsonVersion = "2.9.0"
+
+    const val gson = "com.google.code.gson:gson:$gsonVersion"
+}
+
+object AndroidArch {
+
+    private const val archVersion = "2.1.0"
+
+    const val core_testing = "androidx.arch.core:core-testing:$archVersion"
 }

@@ -1,4 +1,4 @@
-package com.thiennguyen.survey.feature.view
+package com.thiennguyen.survey.view
 
 import android.content.Context
 import android.util.AttributeSet
