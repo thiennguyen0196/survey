@@ -18,7 +18,6 @@ fun DependencyHandler.addLifeCycle(configurationName: String = "implementation")
     add(configurationName, Lifecycle.runtime)
     add(configurationName, Lifecycle.savestate)
     add(configurationName, Lifecycle.viewmodel)
-    add(configurationName, Lifecycle.viewmodel_compose)
 }
 
 fun DependencyHandler.addNavigation(configurationName: String = "implementation") {
@@ -90,4 +89,27 @@ fun DependencyHandler.addGson(configurationName: String = "testImplementation") 
 
 fun DependencyHandler.addAndroidArchCoreTesting(configurationName: String = "testImplementation") {
     add(configurationName, AndroidArch.core_testing)
+}
+
+fun DependencyHandler.addAndroidXInstrumentTest(configurationName: String = "androidTestImplementation") {
+    add(configurationName, AndroidXTest.core)
+    add(configurationName, AndroidXTest.core_ktx)
+    add(configurationName, AndroidXTest.junit)
+    add(configurationName, AndroidXTest.junit_ktx)
+    add(configurationName, AndroidXTest.runner)
+    add(configurationName, AndroidXTest.rules)
+    add("debugImplementation", AndroidXTest.fragment)
+}
+
+fun DependencyHandler.addEspresso(configurationName: String = "androidTestImplementation") {
+    add(configurationName, Espresso.core)
+}
+
+fun DependencyHandler.addHiltTesting(configurationName: String = "androidTestImplementation") {
+    add(configurationName, Hilt.android_testing)
+    add("kaptAndroidTest", Hilt.android_testing_compiler)
+}
+
+fun DependencyHandler.addMockitoAndroid(configurationName: String = "androidTestImplementation") {
+    add(configurationName, Mockito.android)
 }
