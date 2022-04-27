@@ -17,7 +17,7 @@ android {
         versionName = Configuration.versionName
         multiDexEnabled = true
         vectorDrawables.useSupportLibrary = true
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.thiennguyen.survey.runner.CustomTestRunner"
     }
 
     buildTypes {
@@ -65,6 +65,7 @@ android {
             isIncludeAndroidResources = true
             isReturnDefaultValues = true
         }
+        animationsDisabled = true
     }
 
     buildFeatures {
@@ -116,4 +117,10 @@ dependencies {
     addMockito()
     addRobolectric()
     addAndroidArchCoreTesting()
+
+    // Android testing
+    addAndroidXInstrumentTest()
+    addMockitoAndroid()
+    addHiltTesting()
+    addEspresso()
 }

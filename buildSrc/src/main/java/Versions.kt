@@ -37,7 +37,6 @@ object Lifecycle {
     private const val lifecycleVersion = "2.4.1"
 
     const val viewmodel = "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
-    const val viewmodel_compose = "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycleVersion"
     const val livedata = "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion"
     const val runtime = "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
     const val savestate = "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycleVersion"
@@ -64,6 +63,8 @@ object Hilt {
 
     const val android = "com.google.dagger:hilt-android:$hiltVersion"
     const val android_compiler = "com.google.dagger:hilt-android-compiler:$hiltVersion"
+    const val android_testing = "com.google.dagger:hilt-android-testing:$hiltVersion"
+    const val android_testing_compiler = "com.google.dagger:hilt-android-compiler:$hiltVersion"
 }
 
 object ShimmerLayout {
@@ -110,6 +111,7 @@ object Mockito {
     private const val mockitoVersion = "4.0.0"
 
     const val core = "org.mockito:mockito-core:$mockitoVersion"
+    const val android = "org.mockito:mockito-android:$mockitoVersion"
     const val inline = "org.mockito:mockito-inline:$mockitoVersion"
     const val kotlin = "org.mockito.kotlin:mockito-kotlin:$mockitoVersion"
 }
@@ -133,8 +135,30 @@ object Gson {
 }
 
 object AndroidArch {
-
     private const val archVersion = "2.1.0"
 
     const val core_testing = "androidx.arch.core:core-testing:$archVersion"
+}
+
+object AndroidXTest {
+    private const val androidXTestVersion = "1.4.0"
+
+    const val core = "androidx.test:core:$androidXTestVersion"
+    const val core_ktx = "androidx.test:core-ktx:$androidXTestVersion"
+    const val runner = "androidx.test:runner:$androidXTestVersion"
+    const val rules = "androidx.test:rules:$androidXTestVersion"
+
+    private const val junitVersion = "1.1.3"
+
+    const val junit = "androidx.test.ext:junit:$junitVersion"
+    const val junit_ktx = "androidx.test.ext:junit-ktx:$junitVersion"
+
+    private const val fragmentTestVersion = "1.4.1"
+    const val fragment = "androidx.fragment:fragment-testing:$fragmentTestVersion"
+}
+
+object Espresso {
+    private const val espressoVersion = "3.4.0"
+
+    const val core = "androidx.test.espresso:espresso-core:$espressoVersion"
 }

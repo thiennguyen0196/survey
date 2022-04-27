@@ -191,5 +191,5 @@
         app:backgroundTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:rippleColor="@color/white_20" />
+        app:rippleColor="@color/black" />
 </androidx.constraintlayout.widget.ConstraintLayout>
